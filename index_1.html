@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gopal Krushna Mahapatra — IoT · AI/ML · Embedded · Full-Stack</title>
+
+  <!-- ═══ SEO Meta ═══ -->
+  <meta name="description" content="Portfolio of Gopal Krushna Mahapatra — ECE student at NIST University, Berhampur. Specializing in IoT, AI/ML, Embedded Systems, and Full-Stack Development. Open for internships and research collaborations." />
+  <meta name="keywords" content="Gopal Krushna Mahapatra, NIST University, IoT, AI/ML, Embedded Systems, ECE, portfolio, internship, Berhampur, Odisha" />
+  <meta name="author" content="Gopal Krushna Mahapatra" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Gopal Krushna Mahapatra — ECE Engineer · IoT · AI/ML" />
+  <meta property="og:description" content="Building intelligent systems at the intersection of hardware, AI, and software." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/me.jpg" />
+  <meta name="theme-color" content="#050a14" />
+
+  <!-- ═══ Fonts: Clash Display + Cabinet Grotesk ═══ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- ═══ Tailwind CDN ═══ -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ═══ Font Awesome ═══ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  <!-- ═══ Devicon ═══ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+
+  <!-- ═══ EmailJS ═══ -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <!-- ═══ Tailwind Config ═══ -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ══════════════════════════════════════════════════════
+       ROOT VARIABLES
+    ══════════════════════════════════════════════════════ */
+    :root {
+      --bg:           #050a14;
+      --bg-2:         #080f1e;
+      --surface:      rgba(255,255,255,0.032);
+      --surface-2:    rgba(255,255,255,0.056);
+      --border:       rgba(255,255,255,0.072);
+      --border-bright:rgba(255,255,255,0.14);
+      --text:         #e2e8f4;
+      --text-muted:   #64748b;
+      --text-dim:     #3f4f6a;
+      --accent:       #00e5a0;       /* electric teal */
+      --accent-2:     #5b8fff;       /* royal blue    */
+      --accent-3:     #ff6b9d;       /* hot pink      */
+      --accent-4:     #f7c948;       /* amber         */
+      --accent-glow:  rgba(0,229,160,0.18);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       BASE
+    ══════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { font-family: 'Outfit', sans-serif; color-scheme: dark; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      font-family: 'Outfit', sans-serif;
+    }
+    ::selection { background: rgba(0,229,160,0.25); color: #fff; }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    /* ══════════════════════════════════════════════════════
+       SCROLL PROGRESS
+    ══════════════════════════════════════════════════════ */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+      z-index: 9999;
+      transition: width 0.08s linear;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       NOISE TEXTURE
+    ══════════════════════════════════════════════════════ */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       BACKGROUND GRID
+    ══════════════════════════════════════════════════════ */
+    .bg-grid {
+      background-image:
+        linear-gradient(rgba(0,229,160,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,160,0.025) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       GLASSMORPHISM CARD
+    ══════════════════════════════════════════════════════ */
+    .glass {
+      background: var(--surface);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1),
+                  box-shadow 0.28s ease,
+                  border-color 0.28s ease,
+                  background 0.28s ease;
+    }
+    .glass:hover {
+      transform: translateY(-5px) scale(1.008);
+      box-shadow: 0 24px 60px rgba(0,229,160,0.12);
+      border-color: rgba(0,229,160,0.28);
+      background: rgba(0,229,160,0.04);
+    }
+    .glass-static {
+      background: var(--surface);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       ACCENT CHIP / TAG
+    ══════════════════════════════════════════════════════ */
+    .chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.04em;
+      padding: 0.22rem 0.7rem;
+      border-radius: 9999px;
+      background: rgba(0,229,160,0.08);
+      border: 1px solid rgba(0,229,160,0.22);
+      color: var(--accent);
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .chip-blue  { background:rgba(91,143,255,0.08); border-color:rgba(91,143,255,0.22); color:#5b8fff; }
+    .chip-pink  { background:rgba(255,107,157,0.08); border-color:rgba(255,107,157,0.22); color:#ff6b9d; }
+    .chip-amber { background:rgba(247,201,72,0.08); border-color:rgba(247,201,72,0.22);  color:#f7c948; }
+    .chip-purple{ background:rgba(167,139,250,0.08);border-color:rgba(167,139,250,0.22);color:#a78bfa; }
+    .chip-cyan  { background:rgba(34,211,238,0.08); border-color:rgba(34,211,238,0.22); color:#22d3ee; }
+
+    /* ══════════════════════════════════════════════════════
+       SECTION LABEL
+    ══════════════════════════════════════════════════════ */
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       BUTTONS
+    ══════════════════════════════════════════════════════ */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--accent);
+      color: #050a14;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.72rem 1.8rem;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 28px rgba(0,229,160,0.45);
+      transform: translateY(-2px);
+      background: #1aedab;
+    }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent;
+      color: var(--accent);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.68rem 1.7rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(0,229,160,0.35);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+    .btn-outline:hover {
+      background: rgba(0,229,160,0.08);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       NAV LINKS
+    ══════════════════════════════════════════════════════ */
+    .nav-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .nav-link:hover { color: var(--accent); }
+
+    /* ══════════════════════════════════════════════════════
+       TAB SYSTEM
+    ══════════════════════════════════════════════════════ */
+    .tab-btn {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.58rem 1.5rem;
+      border-radius: 9999px;
+      transition: all 0.3s ease;
+      color: var(--text-muted);
+      cursor: pointer;
+      border: 1px solid transparent;
+      background: transparent;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .tab-btn.active {
+      color: #050a14;
+      background: var(--accent);
+      box-shadow: 0 0 22px rgba(0,229,160,0.35);
+    }
+    .tab-btn:not(.active):hover {
+      color: var(--accent);
+      border-color: rgba(0,229,160,0.2);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: tabFadeIn 0.45s ease; }
+    @keyframes tabFadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════════════════════════════════
+       SKILL PILL (hover tooltip)
+    ══════════════════════════════════════════════════════ */
+    .skill-pill {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.72rem;
+      cursor: default;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .skill-pill:hover {
+      border-color: rgba(0,229,160,0.35);
+      background: rgba(0,229,160,0.06);
+    }
+    .skill-pill .tooltip {
+      position: absolute;
+      bottom: 130%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(5,10,20,0.95);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.63rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 8px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      transform: translateX(-50%) translateY(4px);
+      z-index: 20;
+    }
+    .skill-pill:hover .tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       SKILL BAR
+    ══════════════════════════════════════════════════════ */
+    .skill-bar-track {
+      height: 3px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      width: 0%;
+      transition: width 1.3s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       TIMELINE
+    ══════════════════════════════════════════════════════ */
+    .timeline-track {
+      position: absolute;
+      left: 1.1rem; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, var(--accent) 0%, rgba(0,229,160,0.12) 100%);
+    }
+    .timeline-dot {
+      position: absolute;
+      left: calc(1.1rem - 5px);
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       PROJECT CARD
+    ══════════════════════════════════════════════════════ */
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      display: flex; flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 64px rgba(0,0,0,0.5);
+    }
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .project-card:hover img { transform: scale(1.04); }
+
+    /* ══════════════════════════════════════════════════════
+       FILTER BUTTONS
+    ══════════════════════════════════════════════════════ */
+    .filter-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      padding: 0.32rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: 0.05em;
+      background: transparent;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(0,229,160,0.06);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       TESTIMONIAL CAROUSEL
+    ══════════════════════════════════════════════════════ */
+    .testi-item { display: none; }
+    .testi-item.active { display: block; animation: tabFadeIn 0.4s ease; }
+
+    /* ══════════════════════════════════════════════════════
+       CONTACT FORM INPUTS
+    ══════════════════════════════════════════════════════ */
+    .form-input {
+      width: 100%;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 0.72rem 1rem;
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-input::placeholder { color: var(--text-dim); }
+    .form-input:focus {
+      border-color: rgba(0,229,160,0.4);
+      box-shadow: 0 0 0 3px rgba(0,229,160,0.07);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       ORBS / GLOW BLOBS
+    ══════════════════════════════════════════════════════ */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       GLOW TEXT
+    ══════════════════════════════════════════════════════ */
+    .glow { text-shadow: 0 0 28px rgba(0,229,160,0.5), 0 0 56px rgba(0,229,160,0.25); }
+
+    /* ══════════════════════════════════════════════════════
+       ANIMATE ON SCROLL
+    ══════════════════════════════════════════════════════ */
+    .aos {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .aos.visible { opacity: 1; transform: translateY(0); }
+    .aos-delay-1 { transition-delay: 0.1s; }
+    .aos-delay-2 { transition-delay: 0.2s; }
+    .aos-delay-3 { transition-delay: 0.3s; }
+
+    /* ══════════════════════════════════════════════════════
+       HERO TEXT ANIMATION
+    ══════════════════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(28px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .fade-up { opacity:0; animation: fadeUp 0.7s ease forwards; }
+    .delay-1 { animation-delay:0.1s; }
+    .delay-2 { animation-delay:0.25s; }
+    .delay-3 { animation-delay:0.4s; }
+    .delay-4 { animation-delay:0.55s; }
+    .delay-5 { animation-delay:0.7s; }
+
+    /* ══════════════════════════════════════════════════════
+       FLOAT ANIMATION
+    ══════════════════════════════════════════════════════ */
+    @keyframes float {
+      0%,100% { transform:translateY(0); }
+      50%      { transform:translateY(-10px); }
+    }
+    .float { animation: float 5s ease-in-out infinite; }
+
+    /* ══════════════════════════════════════════════════════
+       SCAN LINE (hero avatar)
+    ══════════════════════════════════════════════════════ */
+    @keyframes scan {
+      0% { top:-2px; opacity:0.7; }
+      100% { top:100%; opacity:0; }
+    }
+    .scan-line {
+      position:absolute; left:0; right:0; height:2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      animation: scan 2.5s linear infinite;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       STATUS DOT PULSE
+    ══════════════════════════════════════════════════════ */
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.6; transform:scale(1.4); }
+    }
+    .status-dot { animation: pulse 2s ease-in-out infinite; }
+
+    /* ══════════════════════════════════════════════════════
+       MOBILE HAMBURGER
+    ══════════════════════════════════════════════════════ */
+    #mobile-menu { display:none; }
+    #mobile-menu.open { display:flex; }
+
+    /* ══════════════════════════════════════════════════════
+       RESEARCH STATUS BADGES
+    ══════════════════════════════════════════════════════ */
+    .badge-published { background:rgba(0,229,160,0.1); border:1px solid rgba(0,229,160,0.3); color:var(--accent); }
+    .badge-accepted  { background:rgba(91,143,255,0.1); border:1px solid rgba(91,143,255,0.3); color:#5b8fff; }
+    .badge-review    { background:rgba(247,201,72,0.1); border:1px solid rgba(247,201,72,0.3);  color:#f7c948; }
+
+    /* ══════════════════════════════════════════════════════
+       REMOTE / ON-SITE BADGES
+    ══════════════════════════════════════════════════════ */
+    .mode-remote   { background:rgba(91,143,255,0.1); border:1px solid rgba(91,143,255,0.2); color:#5b8fff; }
+    .mode-onsite   { background:rgba(0,229,160,0.08); border:1px solid rgba(0,229,160,0.2);  color:var(--accent); }
+
+    /* ══════════════════════════════════════════════════════
+       RESPONSIVE ADJUSTMENTS
+    ══════════════════════════════════════════════════════ */
+    @media (max-width:640px) {
+      .skill-pill .tooltip { bottom:auto; top:130%; transform:translateX(-50%); }
+    }
+  </style>
+</head>
+
+<body>
+<!-- ═══════════════════════════════════════════════════════════
+     SCROLL PROGRESS BAR
+═══════════════════════════════════════════════════════════ -->
+<div id="progress-bar"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════════════════ -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-5 py-3.5 flex items-center justify-between gap-4">
+
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-2.5 shrink-0" aria-label="Home">
+      <div class="w-9 h-9 rounded-xl flex items-center justify-center font-display font-900 text-xs text-[#050a14]"
+           style="background:var(--accent)">GKM</div>
+      <span class="font-display font-700 text-sm hidden sm:block" style="color:var(--text)">Gopal Krushna Mahapatra</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden xl:flex items-center gap-5">
+      <a href="#hero"   class="nav-link">Home</a>
+      <span style="color:var(--text-dim)">·</span>
+      <a href="#tab-bar" onclick="switchTab('personal')" class="nav-link">About</a>
+      <a href="#tab-bar" onclick="switchTab('personal')" class="nav-link">Skills</a>
+      <a href="#tab-bar" onclick="switchTab('work')"     class="nav-link">Projects</a>
+      <a href="#tab-bar" onclick="switchTab('work')"     class="nav-link">Research</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Right controls -->
+    <div class="flex items-center gap-2.5">
+      <a href="GopalCV.pdf" download class="btn-primary text-xs hidden md:inline-flex" style="padding:0.52rem 1.2rem">
+        <i class="fa-solid fa-download text-xs"></i> Resume
+      </a>
+      <button id="mobile-btn" class="xl:hidden w-9 h-9 glass-static rounded-xl flex items-center justify-center text-slate-400 hover:text-[var(--accent)] transition-colors" aria-label="Menu">
+        <i class="fa-solid fa-bars text-sm"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="xl:hidden flex-col px-5 pb-4 gap-3 glass-static mx-4 mb-2 rounded-2xl">
+    <a href="#hero"   class="nav-link py-1 block" onclick="closeMobile()">Home</a>
+    <a href="#tab-bar" class="nav-link py-1 block" onclick="switchTab('personal');closeMobile()">Personal</a>
+    <a href="#tab-bar" class="nav-link py-1 block" onclick="switchTab('work');closeMobile()">Work</a>
+    <a href="#contact" class="nav-link py-1 block" onclick="closeMobile()">Contact</a>
+    <a href="GopalCV.pdf" download class="btn-primary text-xs text-center justify-center">
+      <i class="fa-solid fa-download"></i> Download CV
+    </a>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO SECTION
+═══════════════════════════════════════════════════════════ -->
+<section id="hero" class="relative min-h-screen flex flex-col justify-center overflow-hidden bg-grid" style="padding-top:80px">
+
+  <!-- Glow orbs -->
+  <div class="orb w-[520px] h-[520px] opacity-[0.09]" style="background:var(--accent);top:-120px;left:-140px"></div>
+  <div class="orb w-[400px] h-[400px] opacity-[0.07]" style="background:var(--accent-2);bottom:-80px;right:-80px"></div>
+  <div class="orb w-[260px] h-[260px] opacity-[0.05]" style="background:var(--accent-3);top:40%;left:55%"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-5 pt-12 pb-20">
+    <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+      <!-- LEFT: Text -->
+      <div>
+        <!-- Domain label -->
+        <div class="fade-up flex flex-wrap items-center gap-2 mb-5">
+          <span class="chip chip-pink">AI &amp; ML</span>
+          <span style="color:var(--text-dim)">·</span>
+          <span class="chip chip-blue">IoT</span>
+          <span style="color:var(--text-dim)">·</span>
+          <span class="chip chip-cyan">Embedded</span>
+          <span style="color:var(--text-dim)">·</span>
+          <span class="chip">Full-Stack</span>
+        </div>
+
+        <!-- Name -->
+        <h1 class="fade-up delay-1 font-display font-900 leading-[1.04] mb-4" style="font-size:clamp(2.4rem,5.5vw,4.2rem)">
+          Hi, I'm<br>
+          <span class="glow" style="color:var(--accent)">Gopal Krushna</span><br>
+          <span class="glow" style="color:var(--accent)">Mahapatra</span>
+        </h1>
+
+        <!-- Roles -->
+        <div class="fade-up delay-2 flex flex-col gap-0.5 mb-5" style="font-size:1.15rem;font-weight:600">
+          <span style="color:#ff6b9d">↗ IoT Solutions Architect</span>
+          <span style="color:#f7c948">↗ AI &amp; ML Specialist</span>
+          <span style="color:#5b8fff">↗ Full-Stack Developer</span>
+        </div>
+
+        <!-- Bio -->
+        <p class="fade-up delay-3 leading-relaxed mb-8 max-w-xl" style="color:var(--text-muted);font-size:0.95rem">
+          Bridging hardware, data, and software by architecting IoT solutions,
+          building data-driven AI systems, and developing scalable full-stack applications
+          that transform real-world problems into reliable, production-ready technology.
+        </p>
+
+        <!-- Status badge -->
+        <div class="fade-up delay-3 flex items-center gap-2 mb-7">
+          <span class="status-dot w-2 h-2 rounded-full" style="background:var(--accent)"></span>
+          <span class="font-mono text-xs" style="color:var(--accent)">Available for Internships &amp; Research Collabs</span>
+        </div>
+
+        <!-- CTAs -->
+        <div class="fade-up delay-4 flex flex-wrap gap-3">
+          <button class="btn-primary" onclick="switchTab('work');document.getElementById('tab-bar').scrollIntoView({behavior:'smooth'})">
+            <i class="fa-solid fa-rocket"></i>
+            View My Work
+          </button>
+          <a href="#contact" class="btn-outline">
+            <i class="fa-regular fa-paper-plane"></i>
+            Let's Connect
+          </a>
+          <a href="GopalCV.pdf" download class="btn-outline" style="border-color:rgba(247,201,72,0.3);color:#f7c948">
+            <i class="fa-solid fa-download"></i>
+            Download CV
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Photo + Stats -->
+      <div class="fade-up delay-2 flex flex-col items-center gap-6">
+
+        <!-- Photo card -->
+        <div class="relative float">
+          <div class="glass-static overflow-hidden relative" style="width:260px;height:320px;border-radius:1.75rem;border-color:rgba(0,229,160,0.25)">
+            <img src="assets/images/me.jpeg" alt="Gopal Krushna Mahapatra" loading="lazy"
+                 class="w-full h-full object-cover" />
+            <div class="absolute inset-0" style="background:linear-gradient(180deg,transparent 55%,rgba(5,10,20,0.75) 100%)"></div>
+            <div class="scan-line"></div>
+          </div>
+          <!-- Floating badge -->
+          <div class="absolute -bottom-4 -right-4 glass-static px-3 py-2 flex items-center gap-2 text-xs font-mono" style="border-radius:12px">
+            <span class="status-dot w-2 h-2 rounded-full" style="background:var(--accent)"></span>
+            <span style="color:var(--accent)">Open to Work</span>
+          </div>
+        </div>
+
+        <!-- Achievement counters -->
+        <div class="grid grid-cols-3 gap-3 w-full max-w-xs">
+          <div class="glass text-center p-4" style="border-radius:1rem">
+            <div class="font-display font-900 text-2xl counter" data-target="19+" style="color:var(--accent)">0</div>
+            <div class="text-xs mt-1" style="color:var(--text-muted)">Projects</div>
+          </div>
+          <div class="glass text-center p-4" style="border-radius:1rem">
+            <div class="font-display font-900 text-2xl counter" data-target="4" style="color:#5b8fff">0</div>
+            <div class="text-xs mt-1" style="color:var(--text-muted)">Internships</div>
+          </div>
+          <div class="glass text-center p-4" style="border-radius:1rem">
+            <div class="font-display font-900 text-2xl counter" data-target="13+" style="color:#f7c948">0</div>
+            <div class="text-xs mt-1" style="color:var(--text-muted)">Certs</div>
+          </div>
+        </div>
+
+        <!-- Social row -->
+        <div class="flex gap-3">
+          <a href="https://github.com/Gopal-star2005" target="_blank"
+             class="glass-static w-10 h-10 rounded-xl flex items-center justify-center hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all text-slate-400"
+             style="border-radius:10px">
+            <i class="fa-brands fa-github text-sm"></i>
+          </a>
+          <a href="http://www.linkedin.com/in/gopal-krushna-mahapatra-3a974928b" target="_blank"
+             class="glass-static w-10 h-10 rounded-xl flex items-center justify-center hover:border-[var(--accent-2)] hover:text-[var(--accent-2)] transition-all text-slate-400"
+             style="border-radius:10px">
+            <i class="fa-brands fa-linkedin-in text-sm"></i>
+          </a>
+          <a href="mailto:gopalpersonal13@gmail.com"
+             class="glass-static w-10 h-10 rounded-xl flex items-center justify-center hover:border-[var(--accent-3)] hover:text-[var(--accent-3)] transition-all text-slate-400"
+             style="border-radius:10px">
+            <i class="fa-solid fa-envelope text-sm"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="fade-up delay-5 flex flex-col items-center gap-2 mt-16" style="color:var(--text-dim)">
+      <span class="font-mono text-xs tracking-[0.25em]">SCROLL</span>
+      <div style="width:1px;height:48px;background:linear-gradient(180deg,var(--text-dim),transparent)"></div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════
+     TAB BAR (sticky)
+═══════════════════════════════════════════════════════════ -->
+<div id="tab-bar" class="sticky z-40 flex justify-center py-3 px-4" style="top:68px">
+  <div class="glass-static flex gap-1 p-1" style="border-radius:9999px;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
+    <button class="tab-btn active" id="btn-personal" onclick="switchTab('personal')">
+      <i class="fa-solid fa-user text-xs"></i>
+      Personal
+    </button>
+    <button class="tab-btn" id="btn-work" onclick="switchTab('work')">
+      <i class="fa-solid fa-briefcase text-xs"></i>
+      Work
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     TAB CONTENT WRAPPER
+═══════════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-5 pb-20 relative z-10">
+
+<!-- ═══════════════════════════════════════════════════════════
+     TAB 1 — PERSONAL
+═══════════════════════════════════════════════════════════ -->
+<div id="tab-personal" class="tab-content active">
+
+  <!-- ── ABOUT ME ── -->
+  <section id="about" class="py-20 aos">
+    <span class="section-label mb-2">00 — About Me</span>
+    <h2 class="font-display font-800 mb-10" style="font-size:clamp(2rem,4vw,3.2rem)">Who I Am</h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Bio -->
+      <div class="md:col-span-2 glass p-8">
+        <p class="leading-relaxed mb-5" style="color:var(--text-muted)">
+          I am an undergraduate student in <span style="color:var(--accent);font-weight:600">Electronics and Communication Engineering</span> with strong hands-on experience in Internet of Things (IoT) system development, embedded systems, and data-driven applications.
+        </p>
+        <p class="leading-relaxed mb-5" style="color:var(--text-muted)">
+          My academic interests lie in designing <span style="color:#5b8fff;font-weight:500">IoT-based solutions</span> and integrating <span style="color:#5b8fff;font-weight:500">Artificial Intelligence and Machine Learning</span> techniques to enable intelligent, scalable, and sustainable systems — particularly in the context of smart infrastructure and sustainable development in India.
+        </p>
+        <p class="leading-relaxed" style="color:var(--text-muted)">
+          I am actively involved in project-based research and preparing research manuscripts for conference and journal publication in areas related to <span style="color:#f7c948;font-weight:500">IoT, AI/ML integration, and smart sustainable systems</span>.
+        </p>
+
+        <div class="flex flex-wrap gap-3 mt-6">
+          <a href="GopalCV.pdf" download class="btn-primary text-xs" style="padding:0.55rem 1.4rem">
+            <i class="fa-solid fa-download"></i> Download CV
+          </a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXU9cnsDmwAlmr5etba1bvL2R2EGeGXPIAAlfXenme9gUuqQ/viewform?usp=dialog" target="_blank" class="btn-outline text-xs" style="padding:0.55rem 1.4rem">
+            <i class="fa-solid fa-briefcase"></i> Hire Me
+          </a>
+        </div>
+      </div>
+
+      <!-- Info card -->
+      <div class="glass p-6 flex flex-col gap-4">
+        <div class="flex gap-3 items-start">
+          <span class="text-lg mt-0.5">📍</span>
+          <div><div class="text-xs mb-0.5" style="color:var(--text-muted)">Location</div><div class="text-sm">Brahmapur, Odisha, India</div></div>
+        </div>
+        <div class="flex gap-3 items-start">
+          <span class="text-lg mt-0.5">🎓</span>
+          <div><div class="text-xs mb-0.5" style="color:var(--text-muted)">University</div><div class="text-sm">NIST University</div></div>
+        </div>
+        <div class="flex gap-3 items-start">
+          <span class="text-lg mt-0.5">📚</span>
+          <div><div class="text-xs mb-0.5" style="color:var(--text-muted)">Degree</div><div class="text-sm">B.Tech — ECE (2023–2027)</div></div>
+        </div>
+        <div class="flex gap-3 items-start">
+          <span class="text-lg mt-0.5">🏅</span>
+          <div><div class="text-xs mb-0.5" style="color:var(--text-muted)">CGPA</div><div class="text-sm" style="color:var(--accent)">8.9 / 10</div></div>
+        </div>
+        <div class="flex gap-3 items-start">
+          <span class="text-lg mt-0.5">📧</span>
+          <div><div class="text-xs mb-0.5" style="color:var(--text-muted)">Email</div>
+            <a href="mailto:gopalpersonal13@gmail.com" class="text-sm" style="color:var(--accent)">gopalpersonal13@gmail.com</a>
+          </div>
+        </div>
+        <div class="pt-3 border-t flex gap-2" style="border-color:var(--border)">
+          <a href="https://github.com/Gopal-star2005" target="_blank" class="flex-1 text-center py-2 text-xs glass" style="border-radius:10px;color:var(--text-muted)">GitHub</a>
+          <a href="http://www.linkedin.com/in/gopal-krushna-mahapatra-3a974928b" target="_blank" class="flex-1 text-center py-2 text-xs glass" style="border-radius:10px;color:var(--text-muted)">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ── -->
+  <section id="education" class="py-20 aos">
+    <span class="section-label mb-2">01 — Education</span>
+    <h2 class="font-display font-800 mb-12" style="font-size:clamp(2rem,4vw,3.2rem)">Academic Journey</h2>
+
+    <div class="relative pl-14">
+      <div class="timeline-track"></div>
+
+      <!-- B.Tech -->
+      <div class="relative mb-10">
+        <div class="timeline-dot" style="top:1.4rem;background:linear-gradient(135deg,#ff6b9d,#a78bfa)"></div>
+        <div class="glass p-6 hover:shadow-[0_20px_50px_rgba(255,107,157,0.15)] hover:border-[rgba(255,107,157,0.3)]">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h3 class="font-display font-700 text-lg" style="color:#ff6b9d">NIST University, Brahmapur, Odisha</h3>
+              <p class="text-sm mt-0.5" style="color:var(--text-muted)">Bachelor of Technology — Electronics &amp; Communication Engineering</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="chip chip-pink">2023 – 2027</span>
+              <span class="chip" style="color:var(--accent)">CGPA: 8.9/10</span>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Comprehensive coursework covering embedded systems, digital electronics, communication systems, IoT, and applied software development with practical, project-based learning.</p>
+        </div>
+      </div>
+
+      <!-- 12th -->
+      <div class="relative mb-10">
+        <div class="timeline-dot" style="top:1.4rem;background:linear-gradient(135deg,#f7c948,#f97316)"></div>
+        <div class="glass p-6 hover:shadow-[0_20px_50px_rgba(247,201,72,0.15)] hover:border-[rgba(247,201,72,0.3)]">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h3 class="font-display font-700 text-lg" style="color:#f7c948">K. C. Public School</h3>
+              <p class="text-sm mt-0.5" style="color:var(--text-muted)">Intermediate — Science (Physics, Mathematics)</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="chip chip-amber">2021 – 2023</span>
+              <span class="chip chip-amber">70%</span>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Focused on Physics &amp; Mathematics, laying a solid groundwork for advanced technical education.</p>
+        </div>
+      </div>
+
+      <!-- 10th -->
+      <div class="relative">
+        <div class="timeline-dot" style="top:1.4rem;background:linear-gradient(135deg,#22d3ee,#5b8fff)"></div>
+        <div class="glass p-6 hover:shadow-[0_20px_50px_rgba(34,211,238,0.15)] hover:border-[rgba(34,211,238,0.3)]">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h3 class="font-display font-700 text-lg" style="color:#22d3ee">K. C. Public School</h3>
+              <p class="text-sm mt-0.5" style="color:var(--text-muted)">Matriculation — Science &amp; Mathematics</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="chip chip-cyan">2020 – 2021</span>
+              <span class="chip chip-cyan">84%</span>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Built a strong foundation in Mathematics, Science, and analytical thinking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills" class="py-20 aos">
+    <span class="section-label mb-2">02 — Skills &amp; Tools</span>
+    <h2 class="font-display font-800 mb-12" style="font-size:clamp(2rem,4vw,3.2rem)">Technical Arsenal</h2>
+
+    <div class="grid md:grid-cols-3 xl:grid-cols-2 gap-6">
+
+      <!-- Programming Languages -->
+      <div class="glass p-6 hover:shadow-[0_20px_50px_rgba(239,68,68,0.12)] hover:border-[rgba(239,68,68,0.3)]">
+        <h3 class="font-display font-600 mb-4" style="color:#f87171">
+          <i class="fa-solid fa-code mr-2"></i>Programming Languages
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-pill"><img src="https://devicon-website.vercel.app/api/c/original.svg" class="w-4 h-4" alt="C">C<span class="tooltip">3 yrs · 20+ projects</span></span>
+          <span class="skill-pill"><img src="https://devicon-website.vercel.app/api/python/original.svg" class="w-4 h-4" alt="Python">Python<span class="tooltip">1 yr · 13+ projects</span></span>
+          <span class="skill-pill"><img src="https://devicon-website.vercel.app/api/cplusplus/original.svg" class="w-4 h-4" alt="C++">C++<span class="tooltip">2 yrs · 9+ projects</span></span>
+          <span class="skill-pill"><img src="https://devicon-website.vercel.app/api/embeddedc/original.svg" class="w-4 h-4" alt="Embedded C">Embedded C<span class="tooltip">2 yrs · 11+ projects</span></span>
+          <span class="skill-pill"><img src="https://devicon-website.vercel.app/api/html5/original.svg" class="w-4 h-4" alt="HTML">HTML<span class="tooltip">1 yr · 5+ projects</span></span>
+          <span class="skill-pill"><img src="https://devicon-website.vercel.app/api/css3/original.svg" class="w-4 h-4" alt="CSS">CSS<span class="tooltip">1 yr · 5+ projects</span></span>
+          <span class="skill-pill"><img src="https://devicon-website.vercel.app/api/java/original.svg" class="w-4 h-4" alt="Java">Java<span class="tooltip">6 months · 2+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-microchip text-xs" style="color:var(--accent)"></i>Assembly<span class="tooltip">1 yr · 2+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-wave-square text-xs text-sky-400"></i>Verilog<span class="tooltip">1 yr · 1+ project</span></span>
+        </div>
+
+        <!-- Skill bars for top skills -->
+        <div class="mt-5 flex flex-col gap-3">
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>C-programming</span><span>95%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="95"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Python</span><span>90%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="90"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>HTML</span><span>82%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="82"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Embedded C</span><span>88%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="88"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Java</span><span>80%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="80"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hardware & Embedded -->
+      <div class="glass p-6 hover:shadow-[0_20px_50px_rgba(34,211,238,0.12)] hover:border-[rgba(34,211,238,0.3)]">
+        <h3 class="font-display font-600 mb-4" style="color:#22d3ee">
+          <i class="fa-solid fa-microchip mr-2"></i>Hardware &amp; Embedded
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-pill"><i class="fa-solid fa-microchip text-xs" style="color:var(--accent)"></i>Microcontroller Boards<span class="tooltip">2 yrs · 20+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-microchip text-xs text-indigo-400"></i>SBCs (Raspberry Pi)<span class="tooltip">2 yrs · 4+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-satellite-dish text-xs text-sky-400"></i>Sensors &amp; Actuators<span class="tooltip">2 yrs · 17+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-memory text-xs text-cyan-400"></i>Integrated Circuits<span class="tooltip">1 yr · 5+ projects</span></span>
+        </div>
+
+        <!-- Skill bars for top skills -->
+        <div class="mt-5 flex flex-col gap-3">
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Arduino UNO / ESP32</span><span>93%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="93"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Sensor Integration</span><span>88%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="88"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Circuit Design</span><span>90%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="90"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI / ML & Technologies -->
+      <div class="glass p-6 hover:shadow-[0_20px_50px_rgba(167,139,250,0.12)] hover:border-[rgba(167,139,250,0.3)]">
+        <h3 class="font-display font-600 mb-4" style="color:#a78bfa">
+          <i class="fa-solid fa-brain mr-2"></i>AI/ML &amp; Technologies
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-pill"><i class="fa-solid fa-tower-broadcast text-xs" style="color:var(--accent)"></i>IoT<span class="tooltip">3 yrs · 30+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-brain text-xs" style="color:var(--accent)"></i>AI<span class="tooltip">1 yr · 3+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-robot text-xs text-sky-400"></i>ML<span class="tooltip">1 yr · 13+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-square-root-variable text-xs text-indigo-400"></i>Digital Logic<span class="tooltip">1.5 yrs · 7+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-wave-square text-xs text-indigo-400"></i>Analog Circuits<span class="tooltip">2 yrs · 5+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-wifi text-xs" style="color:var(--accent)"></i>Wireless Comm<span class="tooltip">2 months · 10+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-tower-cell text-xs text-fuchsia-400"></i>5G Technology<span class="tooltip">5 months · 2+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-shield-halved text-xs text-red-400"></i>Cybersecurity<span class="tooltip">5 months · 1 project</span></span>
+        </div>
+        <div class="mt-5 flex flex-col gap-3">
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>AI / ML</span><span>85%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="85" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>IoT Architecture</span><span>98%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="98" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Cybersecurity</span><span>60%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="60" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Analog & Digital Circuits</span><span>90%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="90" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="glass p-6 hover:shadow-[0_20px_50px_rgba(0,229,160,0.12)] hover:border-[rgba(0,229,160,0.3)]">
+        <h3 class="font-display font-600 mb-4" style="color:var(--accent)">
+          <i class="fa-solid fa-screwdriver-wrench mr-2"></i>Tools &amp; IDEs
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-pill"><img src="https://devicon-website.vercel.app/api/arduino/original.svg" class="w-4 h-4" alt="Arduino">Arduino IDE<span class="tooltip">3 yrs · 30+ projects</span></span>
+          <span class="skill-pill"><img src="https://devicon-website.vercel.app/api/vscode/original.svg" class="w-4 h-4" alt="VSCode">VS Code<span class="tooltip">2 yrs · 9+ projects</span></span>
+          <span class="skill-pill"><img src="https://devicon-website.vercel.app/api/anaconda/original.svg" class="w-4 h-4" alt="Anaconda">Anaconda<span class="tooltip">2 yrs · 9+ projects</span></span>
+          <span class="skill-pill"><img src="https://devicon-website.vercel.app/api/jupyter/original.svg" class="w-4 h-4" alt="Jupyter">Jupyter<span class="tooltip">1 yr · 2+ projects</span></span>
+          <span class="skill-pill"><img src="https://devicon-website.vercel.app/api/git/original.svg" class="w-4 h-4" alt="Git">Git Bash<span class="tooltip">2 yrs · 4+ projects</span></span>
+          <span class="skill-pill"><i class="devicon-github-original text-sm"></i>GitHub<span class="tooltip">2 yrs · 13+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-w text-xs text-rose-400"></i>Wokwi<span class="tooltip">1 yr · 7+ projects</span></span>
+          <span class="skill-pill"><img src="https://devicon-website.vercel.app/api/canva/original.svg" class="w-4 h-4" alt="Canva">Canva<span class="tooltip">2 yrs · 7+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-comment-dots text-xs" style="color:var(--accent)"></i>ChatGPT<span class="tooltip">4 yrs · 50+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-wand-magic-sparkles text-xs text-sky-400"></i>Gemini<span class="tooltip">1 yr · 19+ projects</span></span>
+        </div>
+        <div class="mt-5 flex flex-col gap-3">
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Arduino IDE</span><span>87%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="87" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>VS Code</span><span>88%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="88" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Wokwi</span><span>80%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="80" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Github</span><span>90%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="90" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Platforms & Databases -->
+      <div class="glass p-6 hover:shadow-[0_20px_50px_rgba(255,107,157,0.12)] hover:border-[rgba(255,107,157,0.3)]">
+        <h3 class="font-display font-600 mb-4" style="color:#ff6b9d">
+          <i class="fa-solid fa-cloud mr-2"></i>Platforms &amp; Databases
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-pill"><i class="fa-solid fa-cloud text-xs" style="color:var(--accent)"></i>ThingSpeak<span class="tooltip">3 yrs · 13+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-mobile-screen-button text-xs text-sky-400"></i>Blynk IoT<span class="tooltip">3 yrs · 9+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-network-wired text-xs text-indigo-400"></i>MQTT Broker<span class="tooltip">4 months · 2+ projects</span></span>
+          <span class="skill-pill"><i class="fa-regular fa-face-smile text-xs text-yellow-400"></i>Hugging Face<span class="tooltip">1 yr · 3+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-caret-up text-xs text-white"></i>Vercel<span class="tooltip">1 yr · 3+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-diagram-project text-xs" style="color:var(--accent)"></i>N8N<span class="tooltip">3 months · 2+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-cube text-xs text-indigo-400"></i>Tinkercad<span class="tooltip">2 yrs · 5+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-diagram-next text-xs text-cyan-400"></i>Cirkit Designer<span class="tooltip">2 yrs · 10+ projects</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-database text-xs text-red-400"></i>Supabase<span class="tooltip">3 months · 2+ projects</span></span>
+          <span class="skill-pill"><i class="devicon-mongodb-plain colored text-sm"></i>MongoDB Atlas<span class="tooltip">1 month · 2+ projects</span></span>
+          <span class="skill-pill"><i class="devicon-postgresql-plain colored text-sm"></i>PostgreSQL<span class="tooltip">4 months · 2+ projects</span></span>
+        </div>
+        <div class="mt-5 flex flex-col gap-3">
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>ThingSpeak</span><span>92%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="92" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Blynk IoT</span><span>88%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="88" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Cirkit Designer</span><span>80%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="80" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="glass p-6 hover:shadow-[0_20px_50px_rgba(91,143,255,0.12)] hover:border-[rgba(91,143,255,0.3)]">
+        <h3 class="font-display font-600 mb-4" style="color:#5b8fff">
+          <i class="fa-solid fa-people-group mr-2"></i>Soft Skills
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-pill"><i class="fa-solid fa-comments text-xs text-cyan-400"></i>Communication<span class="tooltip">Clear, confident verbal &amp; written</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-people-group text-xs text-sky-400"></i>Teamwork<span class="tooltip">Cross-functional collaboration</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-puzzle-piece text-xs" style="color:var(--accent)"></i>Problem-Solving<span class="tooltip">Systematic, creative approach</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-user-tie text-xs text-pink-400"></i>Leadership<span class="tooltip">Guiding teams, taking ownership</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-clock text-xs text-indigo-400"></i>Time Management<span class="tooltip">Prioritizing, meeting deadlines</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-brain text-xs text-amber-400"></i>Critical Thinking<span class="tooltip">Logical evaluation before deciding</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-lightbulb text-xs text-amber-300"></i>Creativity &amp; Innovation<span class="tooltip">Turning ideas into solutions</span></span>
+          <span class="skill-pill"><i class="fa-solid fa-heart text-xs text-rose-400"></i>Emotional Intelligence<span class="tooltip">Empathetic, relationship-builder</span></span>
+        </div>
+        <div class="mt-5 flex flex-col gap-3">
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Communication</span><span>92%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="92" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Leadership</span><span>80%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="80" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Time Management</span><span>88%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="88" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1" style="color:var(--text-muted)"><span>Teamwork</span><span>90%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-level="90" style="background:linear-gradient(90deg,#a78bfa,#5b8fff)"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── GOALS & INTERESTS ── -->
+  <section id="goals" class="py-20 aos">
+    <span class="section-label mb-2">03 — Goals &amp; Interests</span>
+    <h2 class="font-display font-800 mb-12" style="font-size:clamp(2rem,4vw,3.2rem)">Vision &amp; Direction</h2>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-6">
+      <!-- Short Term -->
+      <div class="glass p-6 hover:border-[rgba(0,229,160,0.3)]">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-8 h-8 rounded-xl flex items-center justify-center text-sm" style="background:rgba(0,229,160,0.12)">🎯</div>
+          <h3 class="font-display font-600 text-lg">Short-Term Goals</h3>
+          <span class="chip ml-auto">2024–2026</span>
+        </div>
+        <ul class="flex flex-col gap-2.5" style="color:var(--text-muted);font-size:0.88rem">
+          <li class="flex gap-2"><span style="color:var(--accent);margin-top:2px">→</span>Secure a core IoT or AI/ML internship at a product company</li>
+          <li class="flex gap-2"><span style="color:var(--accent);margin-top:2px">→</span>Publish 2-3 research papers in embedded AI / IoT</li>
+          <li class="flex gap-2"><span style="color:var(--accent);margin-top:2px">→</span>Build a production-grade IoT product end-to-end</li>
+          <li class="flex gap-2"><span style="color:var(--accent);margin-top:2px">→</span>Contribute to meaningful open-source hardware projects</li>
+          <li class="flex gap-2"><span style="color:var(--accent);margin-top:2px">→</span>Achieve strong GATE rank for research opportunities</li>
+        </ul>
+      </div>
+
+      <!-- Long Term -->
+      <div class="glass p-6 hover:border-[rgba(91,143,255,0.3)]">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-8 h-8 rounded-xl flex items-center justify-center text-sm" style="background:rgba(91,143,255,0.12)">🚀</div>
+          <h3 class="font-display font-600 text-lg">Long-Term Vision</h3>
+          <span class="chip chip-blue ml-auto">2027+</span>
+        </div>
+        <ul class="flex flex-col gap-2.5" style="color:var(--text-muted);font-size:0.88rem">
+          <li class="flex gap-2"><span style="color:#5b8fff;margin-top:2px">→</span>Work at a world-class research lab or deep-tech startup</li>
+          <li class="flex gap-2"><span style="color:#5b8fff;margin-top:2px">→</span>Pursue M.S. / Ph.D. in Embedded AI or Edge Computing</li>
+          <li class="flex gap-2"><span style="color:#5b8fff;margin-top:2px">→</span>Found a startup addressing India's IoT infrastructure gap</li>
+          <li class="flex gap-2"><span style="color:#5b8fff;margin-top:2px">→</span>Contribute to India's growing semiconductor ecosystem</li>
+          <li class="flex gap-2"><span style="color:#5b8fff;margin-top:2px">→</span>Mentor the next generation of ECE engineers</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Job Areas of Interest -->
+    <div class="glass p-6 mb-6 hover:border-[rgba(247,201,72,0.3)]">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-8 h-8 rounded-xl flex items-center justify-center text-sm" style="background:rgba(247,201,72,0.12)">💼</div>
+        <h3 class="font-display font-600 text-lg">Job Areas of Interest</h3>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div class="glass p-3 text-center hover:border-[rgba(0,229,160,0.3)]" style="border-radius:0.85rem"><div class="text-2xl mb-1">🔌</div><div class="text-xs font-medium">IoT Engineer</div></div>
+        <div class="glass p-3 text-center hover:border-[rgba(91,143,255,0.3)]" style="border-radius:0.85rem"><div class="text-2xl mb-1">🧠</div><div class="text-xs font-medium">ML/AI Engineer</div></div>
+        <div class="glass p-3 text-center hover:border-[rgba(34,211,238,0.3)]" style="border-radius:0.85rem"><div class="text-2xl mb-1">💡</div><div class="text-xs font-medium">Embedded Dev</div></div>
+        <div class="glass p-3 text-center hover:border-[rgba(255,107,157,0.3)]" style="border-radius:0.85rem"><div class="text-2xl mb-1">🌐</div><div class="text-xs font-medium">Full-Stack Dev</div></div>
+        <div class="glass p-3 text-center hover:border-[rgba(167,139,250,0.3)]" style="border-radius:0.85rem"><div class="text-2xl mb-1">🔬</div><div class="text-xs font-medium">Research Intern</div></div>
+        <div class="glass p-3 text-center hover:border-[rgba(247,201,72,0.3)]" style="border-radius:0.85rem"><div class="text-2xl mb-1">📊</div><div class="text-xs font-medium">Data Engineer</div></div>
+      </div>
+    </div>
+
+    <!-- Research Areas -->
+    <div class="glass p-6 hover:border-[rgba(255,107,157,0.3)]">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-8 h-8 rounded-xl flex items-center justify-center text-sm" style="background:rgba(255,107,157,0.12)">🔬</div>
+        <h3 class="font-display font-600 text-lg">Research Areas of Interest</h3>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        <div class="glass p-4 hover:border-[rgba(0,229,160,0.3)]" style="border-radius:0.85rem">
+          <div class="text-xl mb-2">🧠</div><div class="font-medium text-sm">Edge AI / TinyML</div><div class="text-xs mt-1" style="color:var(--text-muted)">On-device inference</div>
+        </div>
+        <div class="glass p-4 hover:border-[rgba(91,143,255,0.3)]" style="border-radius:0.85rem">
+          <div class="text-xl mb-2">📡</div><div class="font-medium text-sm">Wireless Sensor Networks</div><div class="text-xs mt-1" style="color:var(--text-muted)">Low-power mesh protocols</div>
+        </div>
+        <div class="glass p-4 hover:border-[rgba(255,107,157,0.3)]" style="border-radius:0.85rem">
+          <div class="text-xl mb-2">🏥</div><div class="font-medium text-sm">Healthcare IoT</div><div class="text-xs mt-1" style="color:var(--text-muted)">Remote patient monitoring</div>
+        </div>
+        <div class="glass p-4 hover:border-[rgba(0,229,160,0.3)]" style="border-radius:0.85rem">
+          <div class="text-xl mb-2">🌾</div><div class="font-medium text-sm">AgriTech &amp; Precision Farming</div><div class="text-xs mt-1" style="color:var(--text-muted)">Smart agriculture systems</div>
+        </div>
+        <div class="glass p-4 hover:border-[rgba(247,201,72,0.3)]" style="border-radius:0.85rem">
+          <div class="text-xl mb-2">⚡</div><div class="font-medium text-sm">Smart Energy Systems</div><div class="text-xs mt-1" style="color:var(--text-muted)">Grid optimization</div>
+        </div>
+        <div class="glass p-4 hover:border-[rgba(239,68,68,0.3)]" style="border-radius:0.85rem">
+          <div class="text-xl mb-2">🔒</div><div class="font-medium text-sm">Cyber-Physical Security</div><div class="text-xs mt-1" style="color:var(--text-muted)">Secure IoT architectures</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOBBIES ── -->
+  <section id="hobbies" class="py-16 aos">
+    <span class="section-label mb-2">04 — Beyond Engineering</span>
+    <h2 class="font-display font-800 mb-10" style="font-size:clamp(2rem,4vw,3.2rem)">Interests &amp; Hobbies</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="glass p-4 text-center hover:border-[rgba(0,229,160,0.3)] hover:scale-105 transition-transform" style="border-radius:0.85rem"><div class="text-3xl mb-2">🛠️</div><div class="text-sm font-medium">Hardware Tinkering</div></div>
+      <div class="glass p-4 text-center hover:border-[rgba(91,143,255,0.3)] hover:scale-105 transition-transform" style="border-radius:0.85rem"><div class="text-3xl mb-2">📚</div><div class="text-sm font-medium">Research Reading</div></div>
+      <div class="glass p-4 text-center hover:border-[rgba(247,201,72,0.3)] hover:scale-105 transition-transform" style="border-radius:0.85rem"><div class="text-3xl mb-2">🎮</div><div class="text-sm font-medium">Gaming</div></div>
+      <div class="glass p-4 text-center hover:border-[rgba(255,107,157,0.3)] hover:scale-105 transition-transform" style="border-radius:0.85rem"><div class="text-3xl mb-2">✍️</div><div class="text-sm font-medium">Technical Writing</div></div>
+      <div class="glass p-4 text-center hover:border-[rgba(167,139,250,0.3)] hover:scale-105 transition-transform" style="border-radius:0.85rem"><div class="text-3xl mb-2">🎵</div><div class="text-sm font-medium">Music</div></div>
+      <div class="glass p-4 text-center hover:border-[rgba(0,229,160,0.3)] hover:scale-105 transition-transform" style="border-radius:0.85rem"><div class="text-3xl mb-2">⚽</div><div class="text-sm font-medium">Football</div></div>
+      <div class="glass p-4 text-center hover:border-[rgba(34,211,238,0.3)] hover:scale-105 transition-transform" style="border-radius:0.85rem"><div class="text-3xl mb-2">🌍</div><div class="text-sm font-medium">Open Source</div></div>
+      <div class="glass p-4 text-center hover:border-[rgba(247,201,72,0.3)] hover:scale-105 transition-transform" style="border-radius:0.85rem"><div class="text-3xl mb-2">📷</div><div class="text-sm font-medium">Photography</div></div>
+    </div>
+  </section>
+
+  <!-- Contact injected by JS -->
+  <div id="contact-personal"></div>
+
+</div><!-- /tab-personal -->
+<!-- ═══════════════════════════════════════════════════════════
+     TAB 2 — WORK
+═══════════════════════════════════════════════════════════ -->
+<div id="tab-work" class="tab-content">
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects" class="py-20 aos">
+    <span class="section-label mb-2">05 — Projects</span>
+    <h2 class="font-display font-800 mb-6" style="font-size:clamp(2rem,4vw,3.2rem)">What I've Built</h2>
+
+    <!-- Filter buttons -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      <button class="filter-btn active" onclick="filterProjects('All',this)">All</button>
+      <button class="filter-btn" onclick="filterProjects('IoT',this)">IoT</button>
+      <button class="filter-btn" onclick="filterProjects('AI/ML',this)">AI / ML</button>
+      <button class="filter-btn" onclick="filterProjects('Web',this)">Web / Full-Stack</button>
+    </div>
+
+    <!-- Project grid -->
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6" id="projects-grid">
+
+      <!-- 1 -->
+      <div class="project-card hover:shadow-[0_28px_60px_rgba(244,114,182,0.18)] hover:border-[rgba(244,114,182,0.4)]" data-cat="IoT">
+        <div class="overflow-hidden" style="height:180px">
+          <img src="assets/images/Forest Fire Detection System.jpg" alt="Forest Fire Detection System" loading="lazy"/>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <h3 class="font-display font-600 text-base leading-snug" style="color:#ff6b9d">Early Forest Fire Detection using IoT &amp; ML</h3>
+            <span class="chip chip-pink shrink-0">IoT</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="chip chip-pink">ESP32</span><span class="chip chip-pink">Sensors</span><span class="chip chip-pink">Cloud</span><span class="chip chip-pink">ML</span>
+          </div>
+          <p class="text-sm leading-relaxed flex-1 mb-4" style="color:var(--text-muted)">Early detection of fire patterns using temperature and smoke sensors, with alerts to a web dashboard.</p>
+          <a href="https://github.com/Gopal-star2005/Forest-Fire-Detection-System" target="_blank" class="btn-outline text-xs justify-center" style="border-color:rgba(255,107,157,0.3);color:#ff6b9d">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="project-card hover:shadow-[0_28px_60px_rgba(0,229,160,0.15)] hover:border-[rgba(0,229,160,0.35)]" data-cat="Web">
+        <div class="overflow-hidden" style="height:180px">
+          <img src="assets/images/TrueWrite Scan.png" alt="TrueWrite Scan" loading="lazy"/>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <h3 class="font-display font-600 text-base leading-snug" style="color:var(--accent)">TrueWrite Scan — Content Credibility Platform</h3>
+            <span class="chip shrink-0">Web</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="chip">Grammar</span><span class="chip">Plagiarism</span><span class="chip">AI Content</span>
+          </div>
+          <p class="text-sm leading-relaxed flex-1 mb-4" style="color:var(--text-muted)">AI-powered grammar, plagiarism, and content analysis platform that processes large documents and generates detailed downloadable reports.</p>
+          <a href="https://github.com/Gopal-star2005/TrueWrite-Scan" target="_blank" class="btn-outline text-xs justify-center">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="project-card hover:shadow-[0_28px_60px_rgba(91,143,255,0.18)] hover:border-[rgba(91,143,255,0.4)]" data-cat="IoT">
+        <div class="overflow-hidden" style="height:180px">
+          <img src="assets/images/Solar Tracking System.png" alt="Solar Tracking System" loading="lazy"/>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <h3 class="font-display font-600 text-base leading-snug" style="color:#5b8fff">IoT Smart Dual-axis Solar Tracking System</h3>
+            <span class="chip chip-blue shrink-0">IoT</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="chip chip-blue">Arduino</span><span class="chip chip-blue">LDR</span><span class="chip chip-blue">Servo</span>
+          </div>
+          <p class="text-sm leading-relaxed flex-1 mb-4" style="color:var(--text-muted)">Servo-controlled solar tracking that increases panel efficiency based on light intensity from LDR sensors.</p>
+          <a href="https://github.com/Gopal-star2005/Dual-Axis-Solar-Tracking-System" target="_blank" class="btn-outline text-xs justify-center" style="border-color:rgba(91,143,255,0.3);color:#5b8fff">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="project-card hover:shadow-[0_28px_60px_rgba(247,201,72,0.18)] hover:border-[rgba(247,201,72,0.4)]" data-cat="AI/ML">
+        <div class="overflow-hidden" style="height:180px">
+          <img src="assets/images/Heart Predictor.png" alt="Heart Disease Predictor" loading="lazy"/>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <h3 class="font-display font-600 text-base leading-snug" style="color:#f7c948">AI-based Heart Disease Prediction using ML</h3>
+            <span class="chip chip-amber shrink-0">AI/ML</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="chip chip-amber">Web</span><span class="chip chip-amber">Dataset</span><span class="chip chip-amber">ML Models</span>
+          </div>
+          <p class="text-sm leading-relaxed flex-1 mb-4" style="color:var(--text-muted)">AI-driven heart disease prediction system leveraging ML models to support early diagnosis and data-driven healthcare decisions.</p>
+          <a href="https://github.com/Gopal-star2005/Disease-Predicter" target="_blank" class="btn-outline text-xs justify-center" style="border-color:rgba(247,201,72,0.3);color:#f7c948">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="project-card hover:shadow-[0_28px_60px_rgba(34,211,238,0.18)] hover:border-[rgba(34,211,238,0.4)]" data-cat="IoT">
+        <div class="overflow-hidden" style="height:180px">
+          <img src="assets/images/Apple Spoilage Detection System.png" alt="Apple Spoilage Detection" loading="lazy"/>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <h3 class="font-display font-600 text-base leading-snug" style="color:#22d3ee">IoT Apple Spoilage Detection using ML</h3>
+            <span class="chip chip-cyan shrink-0">IoT</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="chip chip-cyan">ESP32</span><span class="chip chip-cyan">Sensors</span><span class="chip chip-cyan">ML</span><span class="chip chip-cyan">Cloud</span>
+          </div>
+          <p class="text-sm leading-relaxed flex-1 mb-4" style="color:var(--text-muted)">ML-driven IoT system detecting apple spoilage early, reducing food waste through real-time sensor-based monitoring.</p>
+          <a href="https://github.com/Gopal-star2005/Apple-Spoilage-Detection-System" target="_blank" class="btn-outline text-xs justify-center" style="border-color:rgba(34,211,238,0.3);color:#22d3ee">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="project-card hover:shadow-[0_28px_60px_rgba(248,113,113,0.18)] hover:border-[rgba(248,113,113,0.4)]" data-cat="IoT">
+        <div class="overflow-hidden" style="height:180px">
+          <img src="assets/images/Agricultural Monitoring System.png" alt="Smart Agricultural Monitoring" loading="lazy"/>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <h3 class="font-display font-600 text-base leading-snug" style="color:#f87171">IoT Smart Agricultural Monitoring with ML</h3>
+            <span class="chip chip-pink shrink-0">IoT</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="chip chip-pink">ESP32 Cam</span><span class="chip chip-pink">Sensors</span><span class="chip chip-pink">ML</span>
+          </div>
+          <p class="text-sm leading-relaxed flex-1 mb-4" style="color:var(--text-muted)">Integrated ML models to process real-time sensor data for intelligent farm condition analysis.</p>
+          <a href="https://github.com/Gopal-star2005/Smart-Agricultural-Monitoring-System" target="_blank" class="btn-outline text-xs justify-center" style="border-color:rgba(248,113,113,0.3);color:#f87171">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GitHub / LinkedIn links -->
+    <div class="flex flex-wrap gap-4 justify-center mt-10">
+      <a href="https://github.com/Gopal-star2005" target="_blank" class="btn-outline">
+        <i class="fa-brands fa-github"></i> All Projects on GitHub
+      </a>
+      <a href="http://www.linkedin.com/in/gopal-krushna-mahapatra-3a974928b" target="_blank" class="btn-outline" style="border-color:rgba(91,143,255,0.3);color:#5b8fff">
+        <i class="fa-brands fa-linkedin-in"></i> View on LinkedIn
+      </a>
+    </div>
+  </section>
+
+  <!-- ── RESEARCH & PUBLICATIONS ── -->
+  <section id="research" class="py-20 aos">
+    <span class="section-label mb-2">06 — Research &amp; Publications</span>
+    <h2 class="font-display font-800 mb-10" style="font-size:clamp(2rem,4vw,3.2rem)">Research Work</h2>
+
+    <div class="flex flex-col gap-6">
+
+      <!-- Paper 1 -->
+      <div class="glass p-6 md:p-8 flex flex-col md:flex-row gap-6 hover:border-[rgba(255,107,157,0.3)]">
+        <div class="shrink-0 font-display font-900 hidden md:flex items-center justify-center w-14 h-14 rounded-2xl" style="background:rgba(255,107,157,0.08);color:rgba(255,107,157,0.25);font-size:2rem">01</div>
+        <div class="flex-1">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <h3 class="font-display font-600 text-lg leading-snug max-w-2xl" style="color:#ff6b9d">
+              AI for Social Good &amp; Resilience: Harnessing AI to Transform Society and Improve Quality of Life
+            </h3>
+            <span class="text-xs px-2.5 py-1 rounded-full font-mono badge-published">Published</span>
+          </div>
+          <p class="font-mono text-xs mb-4" style="color:var(--text-muted)">Odisha AI Symposium · Symposium Proceedings 2025 · Paper ID - 1571229078</p>
+          <p class="text-sm leading-relaxed mb-4" style="color:var(--text-muted)">
+            I contributed to a technical study on applying AI, machine learning, and NLP to enhance social resilience in disaster management and personalized healthcare. The findings highlight improved prediction accuracy, resource optimization, and decision-making through AI-driven systems, while emphasizing ethical AI practices for sustainable societal impact.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="chip chip-pink">AI</span><span class="chip chip-pink">NLP</span><span class="chip chip-pink">Disaster Mgmt</span><span class="chip chip-pink">Healthcare</span>
+          </div>
+          <a href="https://odishaaisummit.org/symposium" target="_blank" class="btn-outline text-xs" style="border-color:rgba(255,107,157,0.3);color:#ff6b9d">
+            <i class="fa-solid fa-link"></i> View Paper
+          </a>
+        </div>
+      </div>
+
+      <!-- Paper 2 -->
+      <div class="glass p-6 md:p-8 flex flex-col md:flex-row gap-6 hover:border-[rgba(91,143,255,0.3)]">
+        <div class="shrink-0 font-display font-900 hidden md:flex items-center justify-center w-14 h-14 rounded-2xl" style="background:rgba(91,143,255,0.08);color:rgba(91,143,255,0.25);font-size:2rem">02</div>
+        <div class="flex-1">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <h3 class="font-display font-600 text-lg leading-snug max-w-2xl" style="color:#5b8fff">
+              A Smart Dual Axis Solar Tracking System for Efficient Photovoltaic Power Generation
+            </h3>
+            <span class="text-xs px-2.5 py-1 rounded-full font-mono badge-accepted">Accepted</span>
+          </div>
+          <p class="font-mono text-xs mb-4" style="color:var(--text-muted)"> International Conference on "Artificial Intelligence & Machine Learning in Communication and Power Systems" AIMLCPS 2026</p>
+          <p class="text-sm leading-relaxed mb-4" style="color:var(--text-muted)">
+            Designed and implemented a smart dual-axis solar tracking system using sensor-based control to maximize photovoltaic power generation. Experimental results demonstrated improved energy capture and higher power output compared to fixed solar panel systems, validating the effectiveness of dual-axis tracking for enhanced photovoltaic efficiency.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="chip chip-blue">IoT</span><span class="chip chip-blue">Solar Energy</span><span class="chip chip-blue">Embedded</span><span class="chip chip-blue">Photovoltaics</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── ROLES / EXPERIENCE ── -->
+  <section id="experience" class="py-20 aos">
+    <span class="section-label mb-2">07 — Experience</span>
+    <h2 class="font-display font-800 mb-12" style="font-size:clamp(2rem,4vw,3.2rem)">Internships &amp; Roles</h2>
+
+    <div class="relative pl-14">
+      <div class="timeline-track"></div>
+
+      <!-- PWC LuanchPad Program-->
+      <div class="relative mb-10">
+        <div class="timeline-dot" style="top:1.4rem;background:linear-gradient(135deg,#f7c948,#a78bfa)"></div>
+        <div class="glass p-6 hover:border-[rgba(247,201,72,0.3)]">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h3 class="font-display font-600 text-lg" style="color:#f7c948">Launchpad Learning Program Intern</h3>
+              <p class="font-medium text-sm mt-0.5" style="color:#f7c948;opacity:0.8">PwC (PricewaterhouseCoopers)</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs px-2.5 py-1 rounded-full font-mono mode-remote">REMOTE</span>
+              <span class="chip chip-amber">Feb 2026 – July 2026</span>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed mb-4" style="color:var(--text-muted)">Building enterprise technology skills through hands-on learning in Generative AI, Core Java, Modern Data Systems, and Salesforce as part of PwC’s Launchpad Program.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip chip-amber">Gen AI</span><span class="chip chip-amber">Core JAVA</span><span class="chip chip-amber">Modern Data Systems</span><span class="chip chip-amber">Salesforce</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cognifyz Front-end -->
+      <div class="relative mb-10">
+        <div class="timeline-dot" style="top:1.4rem;background:linear-gradient(135deg,#ff6b9d,#a78bfa)"></div>
+        <div class="glass p-6 hover:border-[rgba(255,107,157,0.3)]">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h3 class="font-display font-600 text-lg" style="color:#ff6b9d">Front-end Development Intern</h3>
+              <p class="font-medium text-sm mt-0.5" style="color:#ff6b9d;opacity:0.8">Cognifyz Technologies</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs px-2.5 py-1 rounded-full font-mono mode-remote">REMOTE</span>
+              <span class="chip chip-pink">Dec 2025 – Jan 2026</span>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed mb-4" style="color:var(--text-muted)">Built responsive, interactive UIs with animations, theming, and clean component structures. Delivered production-grade frontend interfaces.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip chip-pink">HTML/CSS</span><span class="chip chip-pink">JavaScript</span><span class="chip chip-pink">Tailwind</span><span class="chip chip-pink">Animations</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bleep Education -->
+      <div class="relative mb-10">
+        <div class="timeline-dot" style="top:1.4rem;background:linear-gradient(135deg,#22d3ee,#5b8fff)"></div>
+        <div class="glass p-6 hover:border-[rgba(34,211,238,0.3)]">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h3 class="font-display font-600 text-lg" style="color:#22d3ee">Python for AI Intern</h3>
+              <p class="font-medium text-sm mt-0.5" style="color:#22d3ee;opacity:0.8">Bleep Education</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs px-2.5 py-1 rounded-full font-mono mode-remote">REMOTE</span>
+              <span class="chip chip-cyan">Sep 2025 – Oct 2025</span>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed mb-4" style="color:var(--text-muted)">Used Python for AI model development, including data analysis, feature engineering, and model evaluation.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip chip-cyan">Python</span><span class="chip chip-cyan">AI/ML</span><span class="chip chip-cyan">Data Analysis</span><span class="chip chip-cyan">Model Evaluation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cognifyz ML -->
+      <div class="relative mb-10">
+        <div class="timeline-dot" style="top:1.4rem;background:linear-gradient(135deg,#f87171,#f97316)"></div>
+        <div class="glass p-6 hover:border-[rgba(248,113,113,0.3)]">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h3 class="font-display font-600 text-lg" style="color:#f87171">Machine Learning Intern</h3>
+              <p class="font-medium text-sm mt-0.5" style="color:#f87171;opacity:0.8">Cognifyz Technologies</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs px-2.5 py-1 rounded-full font-mono mode-remote">REMOTE</span>
+              <span class="chip chip-pink">Dec 2025 – Jan 2026</span>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed mb-4" style="color:var(--text-muted)">Built and tested ML models, performed data preprocessing, and analyzed datasets to improve model performance.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip chip-pink">ML Models</span><span class="chip chip-pink">Data Preprocessing</span><span class="chip chip-pink">Python</span><span class="chip chip-pink">Analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Central Tool Room IoT -->
+      <div class="relative mb-10">
+        <div class="timeline-dot" style="top:1.4rem;background:linear-gradient(135deg,#00e5a0,#22d3ee)"></div>
+        <div class="glass p-6 hover:border-[rgba(0,229,160,0.3)]">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h3 class="font-display font-600 text-lg" style="color:var(--accent)">Internet of Things Intern</h3>
+              <p class="font-medium text-sm mt-0.5" style="color:var(--accent);opacity:0.8">Central Tool Room &amp; Training Centre</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs px-2.5 py-1 rounded-full font-mono mode-onsite">ON-SITE</span>
+              <span class="chip">Jun 2025</span>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed mb-4" style="color:var(--text-muted)">Integrated sensors, microcontrollers, and cloud services to deliver end-to-end automation solutions. Worked with real hardware deployments.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip">ESP32</span><span class="chip">Sensors</span><span class="chip">Cloud</span><span class="chip">Automation</span><span class="chip">IoT</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="flex justify-center mt-4">
+      <a href="http://www.linkedin.com/in/gopal-krushna-mahapatra-3a974928b" target="_blank" class="btn-outline" style="border-color:rgba(91,143,255,0.3);color:#5b8fff">
+        <i class="fa-brands fa-linkedin-in"></i> View All Internships on LinkedIn
+      </a>
+    </div>
+  </section>
+
+  <!-- ── ACHIEVEMENTS ── -->
+  <section id="achievements" class="py-20 aos">
+    <span class="section-label mb-2">08 — Achievements</span>
+    <h2 class="font-display font-800 mb-10" style="font-size:clamp(2rem,4vw,3.2rem)">Achievements &amp; Awards</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="glass p-5 hover:border-[rgba(0,229,160,0.3)]">
+        <img src="assets/images/VirtualVista.jpg" alt="Virtual Vista 2.0" loading="lazy" class="w-full rounded-xl object-contain mb-4" style="height:200px"/>
+        <h3 class="font-display font-600 mb-1" style="color:var(--accent)">Virtual Vista 2.0 — National Level Competition</h3>
+        <p class="font-mono text-xs mb-3" style="color:var(--text-muted)">IEEE-CS Guru Nanak Institutions · 2025</p>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Developed a web-based platform for circular fashion — enabling clothing exchange for credits with AI-driven style recommendations to reduce textile waste.</p>
+      </div>
+
+      <div class="glass p-5 hover:border-[rgba(247,201,72,0.3)]">
+        <img src="assets/images/Naukri Campus Certificate.jpg" alt="Naukri Campus Certificate" loading="lazy" class="w-full rounded-xl object-contain mb-4" style="height:200px"/>
+        <h3 class="font-display font-600 mb-1" style="color:#f7c948">Naukri Campus Young Turks 2025</h3>
+        <p class="font-mono text-xs mb-3" style="color:var(--text-muted)">India's largest skill contest · 2025</p>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Awarded Certificate of Merit after scoring <strong style="color:#f7c948">94.32 percentile</strong> in India's largest national-level skill assessment — reflecting strong problem-solving and technical proficiency.</p>
+      </div>
+
+      <div class="glass p-5 hover:border-[rgba(255,107,157,0.3)]">
+        <img src="assets/images/ProjectExpo.jpg" alt="Project Expo" loading="lazy" class="w-full rounded-xl object-contain mb-4" style="height:200px"/>
+        <h3 class="font-display font-600 mb-1" style="color:#ff6b9d">The Project Expo — NIST University 2025</h3>
+        <p class="font-mono text-xs mb-3" style="color:var(--text-muted)">NIST University Foundation Day · 2025</p>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Presented an IoT-based Smart Agriculture Monitoring System at NIST's 1st University Foundation Day, demonstrating real-time sensor-based agricultural monitoring.</p>
+      </div>
+
+    </div>
+    <div class="flex justify-center mt-8">
+      <a href="http://www.linkedin.com/in/gopal-krushna-mahapatra-3a974928b" target="_blank" class="btn-outline" style="border-color:rgba(91,143,255,0.3);color:#5b8fff">
+        <i class="fa-brands fa-linkedin-in"></i> View All Achievements on LinkedIn
+      </a>
+    </div>
+  </section>
+
+  <!-- ── WHAT I CAN DO ── -->
+  <section id="offer" class="py-20 aos">
+    <span class="section-label mb-2">09 — Value Proposition</span>
+    <h2 class="font-display font-800 mb-10" style="font-size:clamp(2rem,4vw,3.2rem)">What I Can Do For You</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <div class="glass p-6 text-center hover:border-[rgba(255,107,157,0.35)] group">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-4 mx-auto group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,rgba(255,107,157,0.15),rgba(167,139,250,0.15))">🔌</div>
+        <h3 class="font-display font-600 mb-2" style="color:#ff6b9d">End-to-End IoT Systems</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Design sensor networks, firmware, and secure cloud pipelines that turn real-world signals into reliable, real-time insights.</p>
+      </div>
+
+      <div class="glass p-6 text-center hover:border-[rgba(91,143,255,0.35)] group">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-4 mx-auto group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,rgba(91,143,255,0.15),rgba(34,211,238,0.15))">🧠</div>
+        <h3 class="font-display font-600 mb-2" style="color:#5b8fff">Intelligent AI &amp; ML</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Build and deploy ML models that detect patterns, predict events, and optimize decision-making for IoT and business workflows.</p>
+      </div>
+
+      <div class="glass p-6 text-center hover:border-[rgba(247,201,72,0.35)] group">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-4 mx-auto group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,rgba(247,201,72,0.15),rgba(249,115,22,0.15))">📊</div>
+        <h3 class="font-display font-600 mb-2" style="color:#f7c948">Interactive Dashboards</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Build responsive web dashboards that visualize live data streams, alerts, and analytics in a clean, stakeholder-friendly way.</p>
+      </div>
+
+      <div class="glass p-6 text-center hover:border-[rgba(167,139,250,0.35)] group">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-4 mx-auto group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,rgba(91,143,255,0.15),rgba(167,139,250,0.15))">⚙️</div>
+        <h3 class="font-display font-600 mb-2" style="color:#a78bfa">Embedded Prototypes</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Rapidly prototype and test embedded systems, integrating sensors, connectivity, and AI to validate ideas before full-scale builds.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section id="testimonials" class="py-20 aos">
+    <span class="section-label mb-2">10 — Social Proof</span>
+    <h2 class="font-display font-800 mb-10" style="font-size:clamp(2rem,4vw,3.2rem)">What Others Say</h2>
+
+    <div class="glass-static p-6 md:p-8" style="border-radius:1.5rem">
+      <!-- Testimonial display area -->
+      <div id="testi-wrap" style="min-height:220px">
+
+        <div class="testi-item active">
+          <div class="flex gap-1 mb-4">
+            <i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i>
+          </div>
+          <p class="text-base md:text-lg leading-relaxed italic mb-6" style="color:var(--text-muted)">
+            "Gopal consistently demonstrates strong fundamentals in electronics and communication, and quickly turns concepts into working IoT prototypes. He has excellent IoT and embedded systems skills — builds complete prototypes from sensors to cloud dashboards with impressive speed and reliability."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-display font-700 text-sm" style="background:linear-gradient(135deg,var(--accent),#22d3ee);color:#050a14">D</div>
+            <div>
+              <div class="font-display font-600">Deepika Padhy</div>
+              <div class="text-xs" style="color:var(--text-muted)">Final-year M.Tech Student, IIT Bombay</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-item">
+          <div class="flex gap-1 mb-4">
+            <i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i>
+          </div>
+          <p class="text-base md:text-lg leading-relaxed italic mb-6" style="color:var(--text-muted)">
+            "His interest in AI, ML, and embedded systems shows a clear research mindset. Gopal documents his work well and thinks in terms of experiments, results, and improvements. Strong AI/ML researcher mindset — his work shows deep understanding of signal processing, predictive modeling, and real-world IoT applications."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-display font-700 text-sm" style="background:linear-gradient(135deg,#a78bfa,#5b8fff);color:#050a14">S</div>
+            <div>
+              <div class="font-display font-600">Surabhi Rathore</div>
+              <div class="text-xs" style="color:var(--text-muted)">Ph.D. Scholar &amp; Researcher, NIT Rourkela</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-item">
+          <div class="flex gap-1 mb-4">
+            <i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-regular fa-star text-sm" style="color:#f7c948"></i>
+          </div>
+          <p class="text-base md:text-lg leading-relaxed italic mb-6" style="color:var(--text-muted)">
+            "Gopal writes clean, well-structured code and understands how to integrate hardware, APIs, and front-end components. He would be a strong addition to any development team — smooth cloud integrations and professional project documentation throughout."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-display font-700 text-sm" style="background:linear-gradient(135deg,#22d3ee,#5b8fff);color:#050a14">P</div>
+            <div>
+              <div class="font-display font-600">Prakash Mathur</div>
+              <div class="text-xs" style="color:var(--text-muted)">VLSI Verification Engineer, Intel</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-item">
+          <div class="flex gap-1 mb-4">
+            <i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i><i class="fa-solid fa-star text-sm" style="color:#f7c948"></i>
+          </div>
+          <p class="text-base md:text-lg leading-relaxed italic mb-6" style="color:var(--text-muted)">
+            "He takes ownership of projects, explores beyond the syllabus, and delivers practical solutions in domains like IoT and smart systems. A motivated learner with excellent growth potential — exceptional engineering talent in AI/ML who delivers practical, scalable solutions."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-display font-700 text-sm" style="background:linear-gradient(135deg,#f7c948,#f97316);color:#050a14">A</div>
+            <div>
+              <div class="font-display font-600">Asit Kumar Panda</div>
+              <div class="text-xs" style="color:var(--text-muted)">Project Mentor, NIST University</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <div class="flex items-center justify-between mt-6 pt-5" style="border-top:1px solid var(--border)">
+        <div class="flex gap-2" id="testi-dots"></div>
+        <div class="flex gap-2">
+          <button onclick="prevTesti()" class="glass w-9 h-9 flex items-center justify-center text-slate-400 hover:text-[var(--accent)] transition-colors" style="border-radius:10px">
+            <i class="fa-solid fa-chevron-left text-xs"></i>
+          </button>
+          <button onclick="nextTesti()" class="glass w-9 h-9 flex items-center justify-center text-slate-400 hover:text-[var(--accent)] transition-colors" style="border-radius:10px">
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact injected by JS -->
+  <div id="contact-work"></div>
+
+</div><!-- /tab-work -->
+</div><!-- /max-w-7xl wrapper -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     CONTACT SECTION (shared template rendered by JS into both tabs)
+     We use a <template> tag — JS clones it into both tab divs
+═══════════════════════════════════════════════════════════ -->
+<template id="contact-tpl">
+  <div class="max-w-7xl mx-auto px-5 pb-6">
+    <section id="contact" class="py-20 aos">
+      <span class="section-label mb-2">11 — Contact</span>
+      <h2 class="font-display font-800 mb-4" style="font-size:clamp(2rem,4vw,3.2rem)">Get In Touch</h2>
+      <p class="mb-10 max-w-xl" style="color:var(--text-muted)">Interested in collaborating, hiring, or sharing an idea? I'm always open to conversations and new opportunities.</p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Left: social links -->
+        <div class="flex flex-col gap-5">
+          <div class="flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,#ff6b9d,#a78bfa)">
+              <i class="fa-solid fa-envelope text-white"></i>
+            </div>
+            <div>
+              <p class="font-medium text-sm">Email</p>
+              <a href="mailto:gopalpersonal13@gmail.com" class="text-sm" style="color:var(--text-muted)">gopalpersonal13@gmail.com</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,#5b8fff,#22d3ee)">
+              <i class="fa-brands fa-linkedin-in text-white"></i>
+            </div>
+            <div>
+              <p class="font-medium text-sm">LinkedIn</p>
+              <a href="http://www.linkedin.com/in/gopal-krushna-mahapatra-3a974928b" target="_blank" class="text-sm" style="color:var(--text-muted)">Connect with me</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,#f7c948,#f97316)">
+              <i class="fa-brands fa-github text-white"></i>
+            </div>
+            <div>
+              <p class="font-medium text-sm">GitHub</p>
+              <a href="https://github.com/Gopal-star2005" target="_blank" class="text-sm" style="color:var(--text-muted)">View my work</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,#5b8fff,#a78bfa)">
+              <i class="fa-solid fa-phone text-white"></i>
+            </div>
+            <div>
+              <p class="font-medium text-sm">Phone</p>
+              <span class="text-sm" style="color:var(--text-muted)">+91 6372419326</span>
+            </div>
+          </div>
+
+          <!-- Hire Me quick link -->
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXU9cnsDmwAlmr5etba1bvL2R2EGeGXPIAAlfXenme9gUuqQ/viewform?usp=dialog" target="_blank" class="btn-primary mt-2" style="align-self:flex-start">
+            <i class="fa-solid fa-briefcase"></i> Hire Me
+          </a>
+        </div>
+
+        <!-- Right: contact form -->
+        <form id="contact-form" class="glass-static p-6 flex flex-col gap-4" style="border-radius:1.25rem">
+          <div>
+            <label class="font-mono text-xs mb-2 block" style="color:var(--text-muted)">NAME</label>
+            <input type="text" name="name" required class="form-input" placeholder="Your full name" />
+          </div>
+          <div>
+            <label class="font-mono text-xs mb-2 block" style="color:var(--text-muted)">EMAIL</label>
+            <input type="email" name="email" required class="form-input" placeholder="you@example.com" />
+          </div>
+          <div>
+            <label class="font-mono text-xs mb-2 block" style="color:var(--text-muted)">MESSAGE</label>
+            <textarea name="message" rows="4" required class="form-input" style="resize:none" placeholder="Tell me about the opportunity..."></textarea>
+          </div>
+          <button type="submit" id="send-btn" class="btn-primary justify-center">
+            <span id="btn-text"><i class="fa-regular fa-paper-plane"></i> Send Message</span>
+            <span id="btn-spinner" class="hidden w-4 h-4 rounded-full border-2 border-[#050a14] border-t-transparent animate-spin"></span>
+          </button>
+          <p id="form-success" class="text-center text-sm hidden" style="color:var(--accent)">✓ Message sent! I'll reply within 24 hours.</p>
+        </form>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center" style="border-top:1px solid var(--border)">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-2 max-w-7xl mx-auto px-5 text-xs font-mono" style="color:var(--text-dim)">
+        <span>© <span id="yr"></span> Gopal Krushna Mahapatra · All rights reserved.</span>
+        <span>Built with <span style="color:var(--accent)">♥</span> · Tailwind CSS + Vanilla JS</span>
+        <span>Design &amp; code are proprietary.</span>
+      </div>
+    </footer>
+  </div>
+</template>
+<!-- ═══════════════════════════════════════════════════════════
+     JAVASCRIPT — ALL LOGIC
+═══════════════════════════════════════════════════════════ -->
+<script>
+  /* ══════════════════════════════════════════════════════════
+     EmailJS init
+  ══════════════════════════════════════════════════════════ */
+  (function () { emailjs.init("dNAzn-L1fM26Ynj_8"); })();
+
+  /* ══════════════════════════════════════════════════════════
+     YEAR
+  ══════════════════════════════════════════════════════════ */
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('#yr').forEach(el => el.textContent = new Date().getFullYear());
+  });
+
+  /* ══════════════════════════════════════════════════════════
+     INJECT CONTACT TEMPLATE INTO BOTH TABS
+  ══════════════════════════════════════════════════════════ */
+  function injectContacts() {
+    const tpl = document.getElementById('contact-tpl');
+    if (!tpl) return;
+    const p = document.getElementById('contact-personal');
+    const w = document.getElementById('contact-work');
+    if (p) p.appendChild(tpl.content.cloneNode(true));
+    if (w) w.appendChild(tpl.content.cloneNode(true));
+    // Re-bind all forms
+    document.querySelectorAll('#contact-form').forEach(bindForm);
+    document.querySelectorAll('#yr').forEach(el => el.textContent = new Date().getFullYear());
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     EMAILJS FORM HANDLER
+  ══════════════════════════════════════════════════════════ */
+  function bindForm(form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const btn     = form.querySelector('#send-btn');
+      const btnText = form.querySelector('#btn-text');
+      const spinner = form.querySelector('#btn-spinner');
+      const success = form.querySelector('#form-success');
+
+      btn.disabled = true;
+      btnText.classList.add('hidden');
+      spinner.classList.remove('hidden');
+
+      emailjs.sendForm('service_2rxw7cj', 'template_ucqaeos', form)
+        .then(() => {
+          // Auto-reply
+          emailjs.send('service_2rxw7cj', 'template_83pfv4l', {
+            to_name:  form.querySelector('[name=name]').value,
+            to_email: form.querySelector('[name=email]').value,
+          });
+          success.classList.remove('hidden');
+          form.reset();
+          setTimeout(() => success.classList.add('hidden'), 6000);
+        })
+        .catch(err => {
+          alert('Failed to send message. Please try again or email directly.');
+          console.error(err);
+        })
+        .finally(() => {
+          btn.disabled = false;
+          btnText.classList.remove('hidden');
+          spinner.classList.add('hidden');
+        });
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     TAB SWITCHER
+  ══════════════════════════════════════════════════════════ */
+  function switchTab(tab) {
+    // Hide all tabs
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+    // Show selected
+    const content = document.getElementById('tab-' + tab);
+    const button  = document.getElementById('btn-' + tab);
+    if (content) content.classList.add('active');
+    if (button)  button.classList.add('active');
+
+    // Scroll to tab bar (not top of page)
+    const tabBar = document.getElementById('tab-bar');
+    if (tabBar) {
+      const offset = tabBar.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+
+    // Trigger skill bars if switching to personal
+    if (tab === 'personal') setTimeout(animateSkillBars, 300);
+    // Re-init AOS for newly visible tab items
+    setTimeout(checkAOS, 100);
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     PROJECT FILTER
+  ══════════════════════════════════════════════════════════ */
+  function filterProjects(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+
+    document.querySelectorAll('#projects-grid .project-card').forEach(card => {
+      const match = cat === 'All' || card.dataset.cat === cat;
+      card.style.display = match ? 'flex' : 'none';
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     SCROLL PROGRESS BAR
+  ══════════════════════════════════════════════════════════ */
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    document.getElementById('progress-bar').style.width = (scrolled * 100) + '%';
+
+    // Navbar glass effect
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      nav.style.background = 'rgba(5,10,20,0.92)';
+      nav.style.backdropFilter = 'blur(16px)';
+      nav.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
+    } else {
+      nav.style.background = 'transparent';
+      nav.style.backdropFilter = 'none';
+      nav.style.borderBottom = 'none';
+    }
+
+    checkAOS();
+  }, { passive: true });
+
+  /* ══════════════════════════════════════════════════════════
+     ANIMATE ON SCROLL
+  ══════════════════════════════════════════════════════════ */
+  function checkAOS() {
+    document.querySelectorAll('.aos:not(.visible)').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 60) {
+        el.classList.add('visible');
+        // Animate skill bars when skills section becomes visible
+        if (el.querySelector('.skill-bar-fill')) {
+          setTimeout(animateSkillBars, 200);
+        }
+      }
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     SKILL BAR ANIMATION
+  ══════════════════════════════════════════════════════════ */
+  function animateSkillBars() {
+    document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+      bar.style.width = bar.dataset.level + '%';
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     ANIMATED COUNTERS
+  ══════════════════════════════════════════════════════════ */
+  function animateCounters() {
+    document.querySelectorAll('.counter').forEach(el => {
+      const target = parseInt(el.dataset.target, 10);
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / 35));
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = current + (target >= 10 ? '+' : '');
+        if (current >= target) clearInterval(timer);
+      }, 40);
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     TESTIMONIAL CAROUSEL
+  ══════════════════════════════════════════════════════════ */
+  let curTesti = 0;
+  const testiItems = () => document.querySelectorAll('.testi-item');
+  const testiDots  = () => document.getElementById('testi-dots');
+
+  function renderTestiDots() {
+    const d = testiDots();
+    if (!d) return;
+    const items = testiItems();
+    d.innerHTML = '';
+    items.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'rounded-full transition-all';
+      dot.style.cssText = i === curTesti
+        ? 'width:1.5rem;height:0.5rem;background:var(--accent)'
+        : 'width:0.5rem;height:0.5rem;background:rgba(255,255,255,0.2)';
+      dot.onclick = () => goTesti(i);
+      d.appendChild(dot);
+    });
+  }
+
+  function goTesti(idx) {
+    testiItems().forEach((el, i) => el.classList.toggle('active', i === idx));
+    curTesti = idx;
+    renderTestiDots();
+  }
+  function nextTesti() { const items = testiItems(); goTesti((curTesti + 1) % items.length); }
+  function prevTesti() { const items = testiItems(); goTesti((curTesti - 1 + items.length) % items.length); }
+
+  let testiTimer = null;
+  function startTestiTimer() {
+    if (testiTimer) clearInterval(testiTimer);
+    testiTimer = setInterval(nextTesti, 5500);
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     MOBILE MENU
+  ══════════════════════════════════════════════════════════ */
+  document.getElementById('mobile-btn').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  });
+  function closeMobile() {
+    document.getElementById('mobile-menu').classList.remove('open');
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     SMOOTH SCROLL for hash links
+  ══════════════════════════════════════════════════════════ */
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (a) {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+
+  /* ══════════════════════════════════════════════════════════
+     INIT
+  ══════════════════════════════════════════════════════════ */
+  document.addEventListener('DOMContentLoaded', () => {
+    injectContacts();
+    animateCounters();
+    setTimeout(animateSkillBars, 900);
+    renderTestiDots();
+    startTestiTimer();
+    checkAOS();
+    // Initial skill bars for personal tab (default active)
+    setTimeout(animateSkillBars, 600);
+  });
+</script>
+
+</body>
+</html>
