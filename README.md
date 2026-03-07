@@ -1,8 +1,4 @@
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=30&duration=3500&color=00E5A0&center=true&vCenter=true&width=800&lines=Gopal+Krushna+Mahapatra;IoT+Engineer+%7C+AI%2FML+Developer;Embedded+Systems+Engineer;Full+Stack+Developer" />
-</p>
-
-<p align="center">
 <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=32&duration=4000&color=00E5A0&center=true&vCenter=true&width=900&lines=Gopal+Krushna+Mahapatra;IoT+Engineer;AI+%26+ML+Developer;Embedded+Systems+Engineer;Full+Stack+Developer" />
 </p>
 
