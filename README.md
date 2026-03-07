@@ -6,6 +6,12 @@
 Electronics & Communication Engineering Student | IoT • AI/ML • Embedded Systems
 </h3>
 
+## 🐍 Contribution Snake
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/Gopal-star2005/Gopal-star2005/output/github-contribution-grid-snake.svg">
+</p>
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/Gopal-star2005/My-Portfolio-Website/main/assets/banner.svg" alt="Portfolio Banner"/>
 </p>
