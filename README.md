@@ -1,15 +1,5 @@
 <p align="center">
-<img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=32&duration=4000&color=00E5A0&center=true&vCenter=true&width=900&lines=Gopal+Krushna+Mahapatra;IoT+Engineer;AI+%26+ML+Developer;Embedded+Systems+Engineer;Full+Stack+Developer" />
-</p>
-
-<h3 align="center">
-Electronics & Communication Engineering Student | IoT • AI/ML • Embedded Systems
-</h3>
-
-## 🐍 Contribution Snake
-
-<p align="center">
-<img src="https://raw.githubusercontent.com/Gopal-star2005/Gopal-star2005/output/github-contribution-grid-snake.svg">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=30&duration=3500&color=00E5A0&center=true&vCenter=true&width=800&lines=Gopal+Krushna+Mahapatra;IoT+Engineer+%7C+AI%2FML+Developer;Embedded+Systems+Engineer;Full+Stack+Developer" />
 </p>
 
 <p align="center">
