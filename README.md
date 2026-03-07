@@ -23,7 +23,7 @@
 
 🔗 **Visit My Portfolio**
 
-👉 **https://my-portfolio-pied-five-ltxleammx5.vercel.app**
+👉 **https://gopalkrushna.vercel.app/**
 
 ---
 
