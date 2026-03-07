@@ -27,7 +27,7 @@ The portfolio highlights my work in:
 The site is designed with **performance, responsiveness, and modern UI design principles** to provide recruiters and collaborators a clear view of my technical abilities.
 
 🔗 **Live Portfolio:**  
-👉 https://my-portfolio-pied-five-ltxleammx5.vercel.app
+👉 https://gopalkrushna.vercel.app/
 
 ---
 
