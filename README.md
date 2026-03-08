@@ -108,16 +108,6 @@ I enjoy building **real-world technology solutions that solve environmental, ind
 
 ---
 
-# 📈 Most Used Languages
-
-<p align="center">
-
-<img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=Gopal-star2005&layout=compact&theme=tokyonight"/>
-
-</p>
-
----
-
 # 🌍 Deployment
 
 This portfolio is deployed using **Vercel**.
